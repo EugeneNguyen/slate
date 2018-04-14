@@ -1,4 +1,4 @@
-## Contact (High) (New)
+## Message (High) (New)
 
 This query allow to get messages of a conversation
 
