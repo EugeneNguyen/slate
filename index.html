@@ -244,6 +244,23 @@
                   <li>
                     <a href="#schedule-meal-plan-detail-high-new" class="toc-h2 toc-link" data-title="schedule-meal-plan-detail-high-new">Schedule Meal Plan Detail (High) (New)</a>
                   </li>
+                  <li>
+                    <a href="#schedule-food-high-new" class="toc-h2 toc-link" data-title="schedule-food-high-new">Schedule Food (High) (New)</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#message" class="toc-h1 toc-link" data-title="message">Message</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#contact-high-new" class="toc-h2 toc-link" data-title="contact-high-new">Contact (High) (New)</a>
+                  </li>
+                  <li>
+                    <a href="#contact-high-new" class="toc-h2 toc-link" data-title="contact-high-new">Contact (High) (New)</a>
+                  </li>
+                  <li>
+                    <a href="#contact-high-new" class="toc-h2 toc-link" data-title="contact-high-new">Contact (High) (New)</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -301,7 +318,7 @@
 </tbody></table>
 <h1 id='dashboard'>Dashboard</h1><h2 id='schedule-in-day-high-new'>Schedule In Day (High) (New)</h2>
 <p>This query allow to get schedule in a day</p>
-<pre class="highlight plaintext"><code>scheduleInDay($date: String) {
+<pre class="highlight plaintext"><code>scheduleInDay(date: String) {
   date
   summary {
     nutrition
@@ -588,6 +605,231 @@
 </thead><tbody>
 <tr>
 <td>id</td>
+<td>Int</td>
+<td>Yes</td>
+<td>null</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='schedule-food-high-new'>Schedule Food (High) (New)</h2>
+<p>This query allow to get schedule of Food</p>
+<pre class="highlight plaintext"><code>scheduleFood(tag: String, time: String) {
+  foods {
+    id
+    name
+  }
+  options {
+    tag
+    time
+  }
+}
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"foods"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tomatoe &amp; Cheese Toast"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tomatoe &amp; Cheese Toast"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lunch"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13:56"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre><h3 id='request'>Request</h3>
+<p><code>scheduleFood(tag: String, time: String): Food</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tag</td>
+<td>String</td>
+<td>Yes</td>
+<td>null</td>
+<td></td>
+</tr>
+<tr>
+<td>time</td>
+<td>String</td>
+<td>Yes</td>
+<td>null</td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id='message'>Message</h1><h2 id='contact-high-new'>Contact (High) (New)</h2>
+<p>This query allow to get contacts</p>
+<pre class="highlight plaintext"><code>contacts {
+  _id
+  name
+  avatar
+}
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"contacts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Diet Coach"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://i.dailymail.co.uk/i/pix/2013/07/01/article-2352727-0EE42FA200000578-317_634x533.jpg"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='request'>Request</h3>
+<p><code>contacts: [Contact]</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+<h2 id='contact-high-new'>Contact (High) (New)</h2>
+<p>This query allow to get conversations</p>
+<pre class="highlight plaintext"><code>conversations {
+  id
+  last_message
+  user {
+    id
+    name
+    photo
+  }
+}
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Last message content..."</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Diet Coach"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"photo"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre><h3 id='request'>Request</h3>
+<p><code>conversations: [Conversation]</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+<h2 id='contact-high-new'>Contact (High) (New)</h2>
+<p>This query allow to get messages of a conversation</p>
+<pre class="highlight plaintext"><code>messages(conversation_id: Int) {
+  messages {
+    _id
+    createdAt
+    appointment {
+      _id
+      title
+      by
+      at
+      start
+      end
+      to
+      status
+      our_own_data
+    }
+    user: {
+      _id
+      name
+      avatar
+    }
+  }
+  users {
+    _id
+    name
+    avatar
+  }
+}
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-05T23:58:46.265Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"appointment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Appointment Request"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Phonecall"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-05T23:58:46.265Z"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9:30"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10:00"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dr. Rakesh Yadav"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"waiting"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"our_own_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Our own data"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"React Native"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://i.dailymail.co.uk/i/pix/2013/07/01/article-2352727-0EE42FA200000578-317_634x533.jpg"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"React Native"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://i.dailymail.co.uk/i/pix/2013/07/01/article-2352727-0EE42FA200000578-317_634x533.jpg"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='request'>Request</h3>
+<p><code>messages(conversation_id: Int): [Message]</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>conversation_id</td>
 <td>Int</td>
 <td>Yes</td>
 <td>null</td>
