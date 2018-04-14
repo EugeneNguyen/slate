@@ -20,9 +20,7 @@ Welcome to Sympatica project
 
 # Authentication
 
-## Login [High priority] (New)
-
-Login service 
+## Login (High) (New)
 
 ```graphql
 mutation login($username: String, $password: String) {
@@ -51,107 +49,82 @@ Parameter | Type   | Required | Default | Description
 username  | String | Yes      | null    | 
 password  | String | Yes      | null    | [TBD] Encrypted or not
 
-## Get a Specific Kitten
+# Dashboard
 
-```ruby
-require 'kittn'
+## Schedule In Day (High) (New)
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
+This query allow to get schedule in a day
 
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
+```graphql
+scheduleInDay($date: String) {
+  date
+  summary {
+    nutrition
+    exercise
+  }
+  activities {
+    type
+    data
+  }
+}
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "data": {
+    "date": "2018-04-11",
+    "summary": {
+      "nutrition": [
+        {
+          "id": "fiber",
+          "name": "Fiber",
+          "completed": 4,
+          "total": 10
+        }
+        ...
+      ],
+      "exercise": {
+        "steps": 1200,
+        "activity": "45m"
+      }
+    },
+    "activities": [
+      {
+        "id": 8,
+        "type": "medication",
+        "data": {
+          "medicines": [
+            {
+              "id": 1,
+              "name": "Metformin",
+              "qty": "2 Pills"
+            }
+          ],
+          "completed": false
+        }
+      },
+      {
+        "id": 9,
+        "type": "weight",
+        "data": {
+          "completed": false
+        }
+      },
+      ...
+    ]
+  }
 }
 ```
 
-This endpoint retrieves a specific kitten.
+### Request
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+`scheduleInDay($date: String): Schedule`
 
-### HTTP Request
+### Query Parameters
 
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
-## Delete a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
-
-This endpoint deletes a specific kitten.
-
-### HTTP Request
-
-`DELETE http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
+Parameter | Type   | Required | Default | Description
+--------- | ------ | -------- | ------- | -----------
+date      | String | No       | today   | if param date is missing, return today result
 
