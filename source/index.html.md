@@ -27,6 +27,8 @@ includes:
   - medication/header
   - medication/recent
   - medication/search
+  - note/header
+  - note/note
   - errors
 
 search: true

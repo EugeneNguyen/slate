@@ -1,13 +1,13 @@
-## Recent Medication (High) (New)
+## Note (Medium) (New)
 
-This query allow to get recent medication
+This query allow to get notes
 
 ```graphql
-medicationRecent {
+notes {
   id
-  medBrand
-  medName
-  medDosage
+  title
+  content
+  date
 }
 ```
 
@@ -18,9 +18,9 @@ medicationRecent {
   "data": [
     {
       "id": "1",
-      "medBrand": "Metaglip",
-      "medName": "Glipizide & Metformin",
-      "medDosage": "500 mg per pill"
+      "title": "Hello",
+      "content": "- Added Popover component, so you can use it in whole app if need.",
+      "date": "06/Apr/2018"
     }
   ]
 }
@@ -28,7 +28,7 @@ medicationRecent {
 
 ### Request
 
-`medicationRecent: [Medication]`
+`messages(conversation_id: Int): [Message]`
 
 ### Query Parameters
 
