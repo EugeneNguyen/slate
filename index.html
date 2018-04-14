@@ -256,10 +256,32 @@
                     <a href="#contact-high-new" class="toc-h2 toc-link" data-title="contact-high-new">Contact (High) (New)</a>
                   </li>
                   <li>
-                    <a href="#contact-high-new" class="toc-h2 toc-link" data-title="contact-high-new">Contact (High) (New)</a>
+                    <a href="#conversations-high-new" class="toc-h2 toc-link" data-title="conversations-high-new">Conversations (High) (New)</a>
                   </li>
                   <li>
-                    <a href="#contact-high-new" class="toc-h2 toc-link" data-title="contact-high-new">Contact (High) (New)</a>
+                    <a href="#message-high-new" class="toc-h2 toc-link" data-title="message-high-new">Message (High) (New)</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#learn" class="toc-h1 toc-link" data-title="learn">Learn</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#subject-medium-new" class="toc-h2 toc-link" data-title="subject-medium-new">Subject (Medium) (New)</a>
+                  </li>
+                  <li>
+                    <a href="#lesson-info-medium-new" class="toc-h2 toc-link" data-title="lesson-info-medium-new">Lesson info (Medium) (New)</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#medication" class="toc-h1 toc-link" data-title="medication">Medication</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#recent-medication-high-new" class="toc-h2 toc-link" data-title="recent-medication-high-new">Recent Medication (High) (New)</a>
+                  </li>
+                  <li>
+                    <a href="#search-medication-high-new" class="toc-h2 toc-link" data-title="search-medication-high-new">Search Medication (High) (New)</a>
                   </li>
               </ul>
           </li>
@@ -278,14 +300,18 @@
         <h1 id='introduction'>Introduction</h1>
 <p>Welcome to Sympatica project</p>
 <h1 id='authentication'>Authentication</h1><h2 id='login-high-new'>Login (High) (New)</h2><pre class="highlight plaintext"><code>mutation login($username: String, $password: String) {
-  accessToken
+  jwtToken 
 }
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"accessToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;Access token&gt;"</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"authenticate"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"jwtToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;Access token&gt;"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This mutation allow to login and get access token to work with other queries and mutations</p>
@@ -708,7 +734,7 @@
 </tr>
 </thead><tbody>
 </tbody></table>
-<h2 id='contact-high-new'>Contact (High) (New)</h2>
+<h2 id='conversations-high-new'>Conversations (High) (New)</h2>
 <p>This query allow to get conversations</p>
 <pre class="highlight plaintext"><code>conversations {
   id
@@ -750,7 +776,7 @@
 </tr>
 </thead><tbody>
 </tbody></table>
-<h2 id='contact-high-new'>Contact (High) (New)</h2>
+<h2 id='message-high-new'>Message (High) (New)</h2>
 <p>This query allow to get messages of a conversation</p>
 <pre class="highlight plaintext"><code>messages(conversation_id: Int) {
   messages {
@@ -834,6 +860,194 @@
 <td>Yes</td>
 <td>null</td>
 <td></td>
+</tr>
+</tbody></table>
+<h1 id='learn'>Learn</h1><h2 id='subject-medium-new'>Subject (Medium) (New)</h2>
+<p>This query allow to get Subject</p>
+<pre class="highlight plaintext"><code>learnSubjects {
+  estimation
+  subjects: {
+    id
+    completed
+    total
+    title
+    lesson_groups
+  }
+}
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"estimation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5 days streak"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"subjects"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Basics"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lesson_groups"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre><h3 id='request'>Request</h3>
+<p><code>learnSubjects: Subject</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+<h2 id='lesson-info-medium-new'>Lesson info (Medium) (New)</h2>
+<p>This query allow to get Lesson info</p>
+<pre class="highlight plaintext"><code>lesson(id: Int) {
+  title
+  subtitle
+  articles {
+    title
+  }
+  videos {
+    title
+  }
+  quiz {
+    title
+  }
+}
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lesson 6"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"subtitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Understanding Nutrition Labels"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"articles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Article 1"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"videos"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Video 1"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"quiz"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Quiz 1"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='request'>Request</h3>
+<p><code>lesson(id: Int): Lesson</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Int</td>
+<td>Yes</td>
+<td>null</td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id='medication'>Medication</h1><h2 id='recent-medication-high-new'>Recent Medication (High) (New)</h2>
+<p>This query allow to get contacts</p>
+<pre class="highlight plaintext"><code>medicationRecent {
+  id
+  medBrand
+  medName
+  medDosage
+}
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"medBrand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Metaglip"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"medName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Glipizide &amp; Metformin"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"medDosage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"500 mg per pill"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='request'>Request</h3>
+<p><code>medicationRecent: [Medication]</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+<h2 id='search-medication-high-new'>Search Medication (High) (New)</h2>
+<p>This query allow to get medication with brand and/or name</p>
+<pre class="highlight plaintext"><code>medications(brand: String, name: String) {
+  id
+  medBrand
+  medName
+  medDosage
+}
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"medBrand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Metaglip"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"medName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Glipizide &amp; Metformin"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"medDosage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"500 mg per pill"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='request'>Request</h3>
+<p><code>medications(brand: String, name: String): [Medication]</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>brand</td>
+<td>String</td>
+<td>No</td>
+<td>null</td>
+<td>when no brand defined, return all other medication</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>No</td>
+<td>null</td>
+<td>when no name defined, return all other medication</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
