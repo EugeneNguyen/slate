@@ -16,6 +16,11 @@ includes:
   - dashboard/schedule_medicine
   - dashboard/schedule_meal_plan
   - dashboard/schedule_meal_plan_detail
+  - dashboard/schedule_food
+  - message/header
+  - message/contact
+  - message/conversation
+  - message/message
   - errors
 
 search: true

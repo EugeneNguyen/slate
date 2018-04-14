@@ -3,7 +3,7 @@
 This query allow to get schedule in a day
 
 ```graphql
-scheduleInDay($date: String) {
+scheduleInDay(date: String) {
   date
   summary {
     nutrition
