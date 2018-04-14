@@ -238,6 +238,12 @@
                   <li>
                     <a href="#schedule-medicine-high-new" class="toc-h2 toc-link" data-title="schedule-medicine-high-new">Schedule Medicine (High) (New)</a>
                   </li>
+                  <li>
+                    <a href="#schedule-meal-plan-high-new" class="toc-h2 toc-link" data-title="schedule-meal-plan-high-new">Schedule Meal Plan (High) (New)</a>
+                  </li>
+                  <li>
+                    <a href="#schedule-meal-plan-detail-high-new" class="toc-h2 toc-link" data-title="schedule-meal-plan-detail-high-new">Schedule Meal Plan Detail (High) (New)</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -374,7 +380,7 @@
 </tbody></table>
 <h2 id='schedule-medicine-high-new'>Schedule Medicine (High) (New)</h2>
 <p>This query allow to get schedule of medicine</p>
-<pre class="highlight plaintext"><code>scheduleMedicine(tag: String) {
+<pre class="highlight plaintext"><code>scheduleMedicines(tag: String) {
   medicines {
     id
     name
@@ -405,7 +411,7 @@
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre><h3 id='request'>Request</h3>
-<p><code>scheduleMedicine(tag: String): MedicineWithTag</code></p>
+<p><code>scheduleMedicines(tag: String): MedicineWithTag</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -419,6 +425,170 @@
 <tr>
 <td>tag</td>
 <td>String</td>
+<td>Yes</td>
+<td>null</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='schedule-meal-plan-high-new'>Schedule Meal Plan (High) (New)</h2>
+<p>This query allow to get schedule of Meal Plan</p>
+<pre class="highlight plaintext"><code>scheduleMealPlans {
+  meal_options {
+    id
+    name
+    food {
+      id
+      name
+      category
+      time
+    }
+  }
+  guidance {
+    do {
+      id
+      description
+    }
+    avoid {
+      id
+      description
+    }
+  }
+}
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"meal_options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Option 1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"foods"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suspendisse commodo in.."</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SERVES 2"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30M"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://asset1.marksandspencer.com/is/image/mands/MS_FD_F04C_00398503_NC_X_EC_0?$PDP_MAXI_ZOOM_NEW$"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"guidance"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"do"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Phasellus tristique porta justo vel"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"avoid"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Phasellus tristique porta justo vel"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='request'>Request</h3>
+<p><code>scheduleMealPlans: MealPlan</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+<h2 id='schedule-meal-plan-detail-high-new'>Schedule Meal Plan Detail (High) (New)</h2>
+<p>This query allow to get schedule of Meal Plan Detail</p>
+<pre class="highlight plaintext"><code>scheduleMealPlan(id: Int) {
+  id
+  name
+  category
+  time
+  image
+  nutrition {
+    summary {
+      fiber
+      carb
+      protein
+      fat
+    }
+    details {
+      id
+      name
+      value
+      items {
+        id
+        name
+        value
+      }
+    }
+  }
+  ingredients
+  directions
+}
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fettuccine with Brown Butter and Sage"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SERVES 2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30M"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://nerdist.com/wp-content/uploads/2016/11/pokemon-cookbook-feature-11282016.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"nutrition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"summary"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"fiber"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"carb"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"protein"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fat"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fat"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6g"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Saturated Fat"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1g"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"ingredients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"200 g (7 oz) dried Fettuccine"</span><span class="p">,</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"directions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"Cook the pasta according to the instructions on the package."</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='request'>Request</h3>
+<p><code>scheduleMealPlan(id: Int): MealPlan</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Int</td>
 <td>Yes</td>
 <td>null</td>
 <td></td>
