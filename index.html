@@ -286,6 +286,14 @@
               </ul>
           </li>
           <li>
+            <a href="#note" class="toc-h1 toc-link" data-title="note">Note</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#note-medium-new" class="toc-h2 toc-link" data-title="note-medium-new">Note (Medium) (New)</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="errors">Errors</a>
           </li>
       </div>
@@ -299,7 +307,9 @@
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
 <p>Welcome to Sympatica project</p>
-<h1 id='authentication'>Authentication</h1><h2 id='login-high-new'>Login (High) (New)</h2><pre class="highlight plaintext"><code>mutation login($username: String, $password: String) {
+<h1 id='authentication'>Authentication</h1><h2 id='login-high-new'>Login (High) (New)</h2>
+<p>This mutation allow to login and get access token to work with other queries and mutations</p>
+<pre class="highlight plaintext"><code>mutation login($username: String, $password: String) {
   jwtToken 
 }
 </code></pre>
@@ -313,9 +323,7 @@
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This mutation allow to login and get access token to work with other queries and mutations</p>
-<h3 id='request'>Request</h3>
+</span></code></pre><h3 id='request'>Request</h3>
 <p><code>mutation login($username: String, $password: String): AccessToken</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -967,7 +975,7 @@
 </tr>
 </tbody></table>
 <h1 id='medication'>Medication</h1><h2 id='recent-medication-high-new'>Recent Medication (High) (New)</h2>
-<p>This query allow to get contacts</p>
+<p>This query allow to get recent medication</p>
 <pre class="highlight plaintext"><code>medicationRecent {
   id
   medBrand
@@ -1049,6 +1057,41 @@
 <td>null</td>
 <td>when no name defined, return all other medication</td>
 </tr>
+</tbody></table>
+<h1 id='note'>Note</h1><h2 id='note-medium-new'>Note (Medium) (New)</h2>
+<p>This query allow to get notes</p>
+<pre class="highlight plaintext"><code>notes {
+  id
+  title
+  content
+  date
+}
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hello"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"- Added Popover component, so you can use it in whole app if need."</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06/Apr/2018"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='request'>Request</h3>
+<p><code>messages(conversation_id: Int): [Message]</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
 <aside class="notice">
