@@ -9,11 +9,12 @@ toc_footers:
   - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
 
 includes:
-  - errors
   - authentication/header
   - authentication/login
   - dashboard/header
   - dashboard/schedule_in_day
+  - dashboard/schedule_medicine
+  - errors
 
 search: true
 ---
