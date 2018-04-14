@@ -3,7 +3,7 @@
 This query allow to get schedule of medicine
 
 ```graphql
-scheduleMedicine(tag: String) {
+scheduleMedicines(tag: String) {
   medicines {
     id
     name
@@ -38,7 +38,7 @@ scheduleMedicine(tag: String) {
 
 ### Request
 
-`scheduleMedicine(tag: String): MedicineWithTag`
+`scheduleMedicines(tag: String): MedicineWithTag`
 
 ### Query Parameters
 

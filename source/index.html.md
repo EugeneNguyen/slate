@@ -14,6 +14,8 @@ includes:
   - dashboard/header
   - dashboard/schedule_in_day
   - dashboard/schedule_medicine
+  - dashboard/schedule_meal_plan
+  - dashboard/schedule_meal_plan_detail
   - errors
 
 search: true
