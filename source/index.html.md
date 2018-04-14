@@ -24,6 +24,9 @@ includes:
   - learn/header
   - learn/subject
   - learn/lesson
+  - medication/header
+  - medication/recent
+  - medication/search
   - errors
 
 search: true
