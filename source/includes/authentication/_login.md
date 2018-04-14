@@ -2,7 +2,7 @@
 
 ```graphql
 mutation login($username: String, $password: String) {
-  accessToken
+  jwtToken 
 }
 ```
 
@@ -10,7 +10,11 @@ mutation login($username: String, $password: String) {
 
 ```json
 {
-  "accessToken": "<Access token>"
+  "data": {
+    "authenticate": {
+      "jwtToken": "<Access token>"
+    }
+  }
 }
 ```
 

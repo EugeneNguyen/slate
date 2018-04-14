@@ -21,6 +21,9 @@ includes:
   - message/contact
   - message/conversation
   - message/message
+  - learn/header
+  - learn/subject
+  - learn/lesson
   - errors
 
 search: true
